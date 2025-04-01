@@ -1,0 +1,419 @@
+{
+	"info": {
+		"_postman_id": "cc34ad7f-dd28-4a68-bbde-7e76b9204c0c",
+		"name": "MIS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29696130"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "registration",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"FullName\": \"Joe Doe\",\r\n\t\"Email\": \"joedoe@example.com\",\r\n\t\"Password\": \"securepassword\",\r\n\t\"DateOfBirth\": \"2001-01-15\",\r\n\t\"Gender\": \"male\",\r\n\t\"PhoneNumber\": \"+79124776558\",\r\n    \"SpecialtyId\": \"0b0b7979-4d77-4aeb-8a96-18da9c9df000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{port}}/registration",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"registration"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"email\": \"joedoe@example.com\",\r\n\t\"password\": \"securepassword\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{port}}/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"email\": \"joedoe@example.com\",\r\n\t\"password\": \"securepassword\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{port}}/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "profile",
+			"item": [
+				{
+					"name": "update profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"FullName\": \"Joey Doey\",\r\n\t\"Email\": \"joedoe@example.com\",\r\n\t\"DateOfBirth\": \"2001-01-15\",\r\n\t\"Gender\": \"male\",\r\n\t\"PhoneNumber\": \"123-456-7890\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5021/profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5021",
+							"path": [
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get profile",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "file",
+							"file": {}
+						},
+						"url": {
+							"raw": "http://localhost:5021/profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5021",
+							"path": [
+								"profile"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "patient",
+			"item": [
+				{
+					"name": "create new patients",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"FullName\":\"Naruto\",\r\n    \"DateOfBirth\":\"1990-05-10\",\r\n    \"Gender\":\"male\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5021/patients",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5021",
+							"path": [
+								"patients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all patients",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Dictionary",
+			"item": [
+				{
+					"name": "get all specialty",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{port}}/api/dictionary/specialty",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"dictionary",
+								"specialty"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all diagnoses in ICD-10 dictionary",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{port}}/api/dictionary/icd10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"dictionary",
+								"icd10"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Inspection",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"date\": \"2024-11-08T12:37:12.858Z\",\r\n  \"anamnesis\": \"string\",\r\n  \"complaints\": \"string\",\r\n  \"treatment\": \"string\",\r\n  \"conclusion\": \"Disease\",\r\n  \"nextVisitDate\": \"2024-11-09T12:37:12.858Z\",\r\n  \"previousInspectionId\": null,\r\n  \"diagnoses\": [\r\n    {\r\n      \"icdDiagnosisId\": \"666d5d28-207e-4c91-b02c-005ab9fa04c4\",\r\n      \"description\": \"string\",\r\n      \"type\": \"Main\"\r\n    }\r\n  ],\r\n  \"consultations\": [\r\n    {\r\n      \"specialityId\": \"0bbc43ef-d4ca-47dd-bdec-b27c39558d35\",\r\n      \"comment\": {\r\n        \"content\": \"string\"\r\n      }\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{port}}/api/patient/80da1141-23e7-4442-bdfb-e150f47adbff/inspections",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"patient",
+								"80da1141-23e7-4442-bdfb-e150f47adbff",
+								"inspections"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{port}}/api/patient/19d4563a-be8b-4a7b-a6e6-9b22bcd071ff/inspections",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"patient",
+								"19d4563a-be8b-4a7b-a6e6-9b22bcd071ff",
+								"inspections"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "localhost",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "port",
+			"value": "5021",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIzMjYwNmQ1Zi1hNzE4LTQzYTUtYjFhOS05NzI2ZGE5ZjQ5MzUiLCJ1bmlxdWVfbmFtZSI6IkpvZSBEb2UiLCJlbWFpbCI6ImpvZWRvZUBleGFtcGxlLmNvbSIsIm5iZiI6MTczMTA3NzYyMiwiZXhwIjoxNzMxMDgxMjIyLCJpYXQiOjE3MzEwNzc2MjIsImlzcyI6Ik1JU0FwcCIsImF1ZCI6Ik1JU0NsaWVudHMifQ.bM8ZmPOtF8YGd7V9EIsFruEGdWaErfF2eSmYzl5nxBs",
+			"type": "string"
+		}
+	]
+}
